@@ -928,11 +928,11 @@ select {
 .w-32 {
   width: 8rem;
 }
-.w-36 {
-  width: 9rem;
-}
 .w-104 {
   width: 26rem;
+}
+.w-36 {
+  width: 9rem;
 }
 .w-76 {
   width: 19rem;
@@ -1522,6 +1522,9 @@ select {
   -webkit-line-clamp: 3;
 }
 
+[x-cloak] {
+    display: none !important;
+}
 /* vertical line to the left of the comments */
 .comments-container::before {
     position: absolute;
