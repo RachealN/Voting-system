@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
-    <head>
+<head xmlns:livewire="http://www.w3.org/1999/html">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <livewire:styles />
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -119,5 +120,6 @@
                 </div>
             </div>
         </main>
+        <livewire:scripts/>
     </body>
 </html>

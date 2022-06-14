@@ -17,24 +17,26 @@
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">A random title can go here</a>
+                    <a href="{{route('idea.show', $idea)}}" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
                 <div class="text-gray-600 mt-3">
-                    Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet officia doloribus quibusdam dolorem quod velit repellat obcaecati doloremque, nulla iusto modi hic. Dolore possimus consequuntur et recusandae laboriosam? Esse, culpa.
+                    {{ $idea->description }}
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                        <div class="hidden md:block font-bold text-gray-900">John Doe</div>
+                        <div class="hidden md:block font-bold text-gray-900">Racheal</div>
                         <div class="hidden md:block">&bull;</div>
-                        <div>10 hours ago</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
                         <div>Category 1</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
-                    <div class="flex items-center space-x-2 mt-4 md:mt-0"
-                         x-data="{ isOpen: false }">
+                    <div
+                        class="flex items-center space-x-2 mt-4 md:mt-0"
+                        x-data="{ isOpen: false }"
+                    >
                         <div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>
                         <button
                             class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
@@ -53,6 +55,7 @@
                             </ul>
                         </button>
                     </div>
+
                     <div class="flex items-center md:hidden mt-4 md:mt-0">
                         <div class="bg-gray-100 text-center rounded-xl h-10 px-4 py-2 pr-8">
                             <div class="text-sm font-bold leading-none">12</div>
@@ -73,11 +76,13 @@
         <div class="flex flex-col md:flex-row items-center space-x-4 md:ml-6">
             <div
                 x-data="{ isOpen: false }"
-                class="relative">
+                class="relative"
+            >
                 <button
-                    @click="isOpen = !isOpen"
                     type="button"
-                    class="flex items-center justify-center h-11 w-32 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3">
+                    @click="isOpen = !isOpen"
+                    class="flex items-center justify-center h-11 w-32 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
+                >
                     Reply
                 </button>
                 <div
@@ -85,7 +90,8 @@
                     x-cloak
                     x-show.transition.origin.top.left="isOpen"
                     @click.away="isOpen = false"
-                    @keydown.escape.window="isOpen = false">
+                    @keydown.escape.window="isOpen = false"
+                >
                     <form action="#" class="space-y-4 px-4 py-6">
                         <div>
                             <textarea name="post_comment" id="post_comment" cols="30" rows="4" class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2" placeholder="Go ahead, don't be shy. Share your thoughts..."></textarea>
@@ -94,13 +100,14 @@
                         <div class="flex flex-col md:flex-row items-center md:space-x-3">
                             <button
                                 type="button"
-                                class="flex items-center justify-center h-11 w-full md:w-1/2 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3" justify-center h-11 w-1/2 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
+                                class="flex items-center justify-center h-11 w-full md:w-1/2 text-sm bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
                             >
                                 Post Comment
                             </button>
                             <button
                                 type="button"
-                                class="flex items-center justify-center w-full md:w-32 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 mt-2 md:mt-0">
+                                class="flex items-center justify-center w-full md:w-32 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 mt-2 md:mt-0"
+                            >
                                 <svg class="text-gray-600 w-4 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                                 </svg>
@@ -111,8 +118,10 @@
                     </form>
                 </div>
             </div>
-            <div class="relative"
-                 x-data="{ isOpen: false }">
+            <div
+                class="relative"
+                x-data="{ isOpen: false }"
+            >
                 <button
                     type="button"
                     @click="isOpen = !isOpen"
@@ -195,7 +204,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
 
         <div class="hidden md:flex items-center space-x-3">
@@ -265,12 +273,11 @@
                     <a href="#">
                         <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="w-14 h-14 rounded-xl">
                     </a>
-                    <div class="text-center uppercase text-blue text-xxs font-bold mt-1">Admin</div>
                 </div>
                 <div class="w-full md:mx-4">
-{{--                    <h4 class="text-xl font-semibold">--}}
-{{--                        <a href="#" class="hover:underline">Status Changed to "Under Consideration"</a>--}}
-{{--                    </h4>--}}
+                    {{-- <h4 class="text-xl font-semibold">
+                        <a href="#" class="hover:underline">A random title can go here</a>
+                    </h4> --}}
                     <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit amet consectetur.
                     </div>
@@ -314,6 +321,9 @@
                     </a>
                 </div>
                 <div class="w-full md:mx-4">
+                    {{-- <h4 class="text-xl font-semibold">
+                        <a href="#" class="hover:underline">A random title can go here</a>
+                    </h4> --}}
                     <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit amet consectetur.
                     </div>
@@ -349,5 +359,5 @@
                 </div>
             </div>
         </div> <!-- end comment-container -->
-    </div>
+    </div> <!-- end comments-container -->
 </x-app-layout>
