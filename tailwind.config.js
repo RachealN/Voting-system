@@ -21,6 +21,7 @@ module.exports = {
                 'red' : '#ec454f',
                 'green' : '#1aab8b',
                 'purple' : '#8b60ed',
+
             },
             spacing: {
                 22: '5.5rem',
