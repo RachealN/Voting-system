@@ -67,7 +67,7 @@
                             @auth()
                                 Let us know what you would like and we'll take a look over!
                             @else
-                                Please Login to Create Idea!
+                                Please login to create an idea.
                             @endauth
 
                         </p>

@@ -54,6 +54,7 @@ public function single_idea_shows_correctly_on_the_show_page()
     ]);
 
     $response = $this->get(route('idea.show', $idea));
+    dd($response);
     $response->assertSuccessful();
     $response->assertSee($idea->title);
     $response->assertSee($categoryOne->name);
