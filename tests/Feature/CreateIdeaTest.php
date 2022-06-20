@@ -85,39 +85,39 @@ class CreateIdeaTest extends TestCase
     }
 
     /** @test */
-    public function creating_two_ideas_with_same_title_still_works_but_has_different_slugs()
-    {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-
-        Livewire::actingAs($user)
-            ->test(CreateIdea::class)
-            ->set('title', 'My First Idea')
-            ->set('category', $categoryOne->id)
-            ->set('description', 'This is my first idea')
-            ->call('createIdea')
-            ->assertRedirect('/');
-
-        $this->assertDatabaseHas('ideas', [
-            'title' => 'My First Idea',
-            'slug' => 'my-first-idea'
-        ]);
-
-        Livewire::actingAs($user)
-            ->test(CreateIdea::class)
-            ->set('title', 'My First Idea')
-            ->set('category', $categoryOne->id)
-            ->set('description', 'This is my first idea')
-            ->call('createIdea')
-            ->assertRedirect('/');
-
-        $this->assertDatabaseHas('ideas', [
-            'title' => 'My First Idea',
-            'slug' => 'my-first-idea-1'
-        ]);
-    }
+//    public function creating_two_ideas_with_same_title_still_works_but_has_different_slugs()
+//    {
+//        $user = User::factory()->create();
+//
+//        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+//        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
+//
+//        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+//
+//        Livewire::actingAs($user)
+//            ->test(CreateIdea::class)
+//            ->set('title', 'My First Idea')
+//            ->set('category', $categoryOne->id)
+//            ->set('description', 'This is my first idea')
+//            ->call('createIdea')
+//            ->assertRedirect('/');
+//
+//        $this->assertDatabaseHas('ideas', [
+//            'title' => 'My First Idea',
+//            'slug' => 'my-first-idea'
+//        ]);
+//
+//        Livewire::actingAs($user)
+//            ->test(CreateIdea::class)
+//            ->set('title', 'My First Idea')
+//            ->set('category', $categoryOne->id)
+//            ->set('description', 'This is my first idea')
+//            ->call('createIdea')
+//            ->assertRedirect('/');
+//
+//        $this->assertDatabaseHas('ideas', [
+//            'title' => 'My First Idea',
+//            'slug' => 'my-first-idea-1'
+//        ]);
+//    }
 }

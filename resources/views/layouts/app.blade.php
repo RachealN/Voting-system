@@ -80,7 +80,7 @@
                                 <a
                                     href="{{ route('login') }}"
                                     class="inline-block justify-center w-1/2 h-11 text-xs bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3">
-                                    <span class="ml-1">Login</span>
+                                    Login
                                 </a>
                                 <a
                                     href="{{ route('register') }}"

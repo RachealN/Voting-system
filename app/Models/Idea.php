@@ -26,9 +26,9 @@ class Idea extends Model
         ];
     }
 
-    public function users(){
-        $this->hasOne(User::class);
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function category()
@@ -39,6 +39,11 @@ class Idea extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(User::class, 'votes');
     }
 
     public function getStatusClasses()
