@@ -33,7 +33,7 @@ class StatusFilters extends Component
             ]);
         }
     }
-
+    //url->previous
     public function render()
     {
         return view('livewire.status-filters');

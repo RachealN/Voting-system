@@ -87,15 +87,11 @@ class Idea extends Model
     public function getStatusClasses()
     {
         $all_statuses = [
-            'Open' => 'bg-gray-200',
-            'Considering' => 'bg-gray-200',
-            'In Progress' => 'bg-gray-200',
-            'Implemented' => 'bg-gray-200',
-            'Closed' => 'bg-gray-200'
-//            'Considering' => 'bg-purple text-white',
-//            'In Progress' => 'bg-yellow text-white',
-//            'Implemented' => 'bg-green text-white',
-//            'Closed' => 'bg-red text-white'
+            'Open' => 'bg-white-200 text-blue border-none',
+            'Considering' => 'bg-white-200 text-purple border-none',
+            'In Progress' => 'bg-white-200 text-yellow border-none',
+            'Implemented' => 'bg-white-200 text-green border-none',
+            'Closed' => 'bg-white-200 text-red border-none'
         ];
         return $all_statuses[$this->status->name];
     }
