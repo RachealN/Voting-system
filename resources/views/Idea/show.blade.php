@@ -4,7 +4,7 @@
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span class="ml-2">All ideas (or back to chosen category with filters)</span>
+            <span class="ml-2">All ideas </span>
         </a>
     </div>
 
@@ -16,6 +16,12 @@
     @can('update', $idea)
         <livewire:edit-idea :idea="$idea" />
     @endcan
+
+    @can('delete', $idea)
+        <livewire:delete-idea :idea="$idea" />
+    @endcan
+
+
 
     <div class="comments-container relative space-y-6 md:ml-22 pt-4 my-8 mt-1">
 
