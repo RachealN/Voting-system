@@ -21,7 +21,7 @@ class NotifyAllVotersTest extends TestCase
     public function it_sends_an_email_to_all_voters()
     {
         $user = User::factory()->create([
-            'email' => 'rechealmatsikoit@gmail.com',
+            'email' => 'test@gmail.com',
         ]);
 
         $userB = User::factory()->create([
@@ -55,7 +55,7 @@ class NotifyAllVotersTest extends TestCase
         NotifyAllVoters::dispatch($idea);
 
         Mail::assertQueued(IdeaStatusUpdatedMailable::class, function ($mail) {
-            return $mail->hasTo('rechealmatsikoit@gmail.com')
+            return $mail->hasTo('test@gmail.com')
                 && $mail->build()->subject === 'An idea you voted for has a new status';
         });
 

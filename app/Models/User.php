@@ -56,7 +56,7 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return in_array($this->email, [
-            'rechealmatsikoit@gmail.com',
+            'test@gmail.com',
         ]);
     }
 }

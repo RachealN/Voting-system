@@ -15,7 +15,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->make([
             'name' => 'Racheal',
-            'email' => 'rechealmatsikoit@gmail.com',
+            'email' => 'test@gmail.com',
         ]);
 
         $userB = User::factory()->make([
