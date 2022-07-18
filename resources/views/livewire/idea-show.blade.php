@@ -28,7 +28,7 @@
                         <div>&bull;</div>
                         <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
-                        <div class="text-gray-900">{{ $idea->comments->count() }} comments</div>
+                        <div class="text-gray-400 text-xs leading-none">Votes</div>
                     </div>
                     <div
                         class="flex items-center space-x-2 mt-4 md:mt-0"
@@ -149,7 +149,6 @@
         <div class="hidden md:flex items-center space-x-3">
             <div class="bg-white font-semibold text-center rounded-xl px-3 py-2">
                 <div class="text-xl leading-snug @if($hasVoted) text-blue @endif">{{ $votesCount }}</div>
-                <div class="text-gray-400 text-xs leading-none">Votes</div>
             </div>
             @if ($hasVoted)
                 <button
